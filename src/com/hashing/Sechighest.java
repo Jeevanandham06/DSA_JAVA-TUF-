@@ -11,34 +11,32 @@ public class Sechighest {
         System.out.print("Highest Occuring element of the array:" + result);
 
     }
-    class Solution{
-        public static int SecondhighestOccuring(int []nums){
-            HashMap<Integer,Integer>map=new HashMap<>();
-            for(int num:nums){
-                map.put(num, map.getOrDefault(num,0)+1);
+
+    class Solution {
+        public static int SecondhighestOccuring(int[] nums) {
+            HashMap<Integer, Integer> map = new HashMap<>();
+            for (int num : nums) {
+                map.put(num, map.getOrDefault(num, 0) + 1);
             }
-            int maxfreq = 0, secmaxfreq=0;
-            int maxele=-1,  secmaxele=-1;
-            for(Map.Entry<Integer,Integer>entry: map.entrySet()){
-                int freq =entry.getValue();
-                int ele =entry.getKey();
+            int maxfreq = 0, secmaxfreq = 0;
+            int maxele = -1, secmaxele = -1;
+            for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+                int freq = entry.getValue();
+                int ele = entry.getKey();
 
-                if(freq>maxfreq){
-                    secmaxfreq=maxfreq;
-                    maxfreq=freq;
-                    secmaxele=maxele;
-                    maxele=ele;
+                if (freq > maxfreq) {
+                    secmaxfreq = maxfreq;
+                    maxfreq = freq;
+                    secmaxele = maxele;
+                    maxele = ele;
 
-                }
-                else if (freq==maxfreq){
-                    maxele=Math.min(maxele,ele);
-                }
-                else if(freq>secmaxfreq){
-                    secmaxfreq=freq;
-                    secmaxele=ele;
-                }
-                else if(freq==secmaxfreq){
-                    secmaxele=Math.min(secmaxele,ele);
+                } else if (freq == maxfreq) {
+                    maxele = Math.min(maxele, ele);
+                } else if (freq > secmaxfreq) {
+                    secmaxfreq = freq;
+                    secmaxele = ele;
+                } else if (freq == secmaxfreq) {
+                    secmaxele = Math.min(secmaxele, ele);
                 }
             }
             return secmaxele;
