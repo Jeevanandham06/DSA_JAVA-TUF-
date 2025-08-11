@@ -1,7 +1,6 @@
-package Hahsing;
+package Hashing;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class Sumoffreq {
     static class Solution {
